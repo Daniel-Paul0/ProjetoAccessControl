@@ -1,0 +1,721 @@
+// converted by version  [v24.1]
+// on Mon Jun 16 11:22:34 WEST 2025
+
+.package com/project {
+	.aid 0xA0:0x0:0x0:0x0:0x62:0x3:0x1:0xA:0x3;
+	.version 1.0;
+
+	.imports {
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x1 1.5;		//javacard/framework
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x2 1.5;		//javacard/security
+		0xA0:0x0:0x0:0x0:0x62:0x2:0x1 1.5;		//javacardx/crypto
+		0xA0:0x0:0x0:0x0:0x62:0x0:0x1 1.0;		//java/lang
+	}
+
+	.applet {
+		0xA0:0x0:0x0:0x0:0x62:0x3:0x1:0xA:0x3:0x1 CAAplett;
+	}
+
+	.constantPool {
+		// 0
+		instanceFieldRef byte[] CAAplett/cardId;
+		// 1
+		instanceFieldRef short CAAplett/idLength;
+		// 2
+		instanceFieldRef 0.9 CAAplett/pin;
+		// 3
+		instanceFieldRef 1.20 CAAplett/symmetricKey;
+		// 4
+		instanceFieldRef 2.1 CAAplett/aesCipher;
+		// 5
+		instanceFieldRef 1.11 CAAplett/hashFunction;
+		// 6
+		instanceFieldRef byte[] CAAplett/ivBuffer;
+		// 7
+		instanceFieldRef byte[] CAAplett/aesInputBuffer;
+		// 8
+		instanceFieldRef byte[] CAAplett/aesInputBufferD;
+		// 9
+		instanceFieldRef byte[] CAAplett/digestBuffer;
+		// 10
+		instanceFieldRef 1.14 CAAplett/random;
+		// 11
+		staticMethodRef 1.11.0(BZ)Ljavacard/security/MessageDigest;;		// javacard/security/MessageDigest.getInstance(BZ)Ljavacard/security/MessageDigest;
+			.descriptor	Ljavacard/security/MessageDigest;	1.11;
+
+		// 12
+		staticMethodRef 0.3.0()V;		// javacard/framework/Applet.<init>()V
+		// 13
+		staticMethodRef 0.8.13(SB)[B;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+		// 14
+		staticMethodRef 1.13.0(BSZ)Ljavacard/security/Key;;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+			.descriptor	Ljavacard/security/Key;	1.0;
+
+		// 15
+		.classRef 1.20;		// javacard/security/AESKey
+		// 16
+		.classRef 0.9;		// javacard/framework/OwnerPIN
+		// 17
+		staticMethodRef 2.1.0(BZ)Ljavacardx/crypto/Cipher;;		// javacardx/crypto/Cipher.getInstance(BZ)Ljavacardx/crypto/Cipher;
+			.descriptor	Ljavacardx/crypto/Cipher;	2.1;
+
+		// 18
+		staticMethodRef 1.14.0(B)Ljavacard/security/RandomData;;		// javacard/security/RandomData.getInstance(B)Ljavacard/security/RandomData;
+			.descriptor	Ljavacard/security/RandomData;	1.14;
+
+		// 19
+		staticMethodRef 0.9.0(BB)V;		// javacard/framework/OwnerPIN.<init>(BB)V
+		// 20
+		virtualMethodRef 0.3.1()V;		// register()V
+		// 21
+		.classRef CAAplett;
+		// 22
+		staticMethodRef CAAplett/<init>()V;
+		// 23
+		staticMethodRef 0.16.3([BSSB)S;		// javacard/framework/Util.arrayFillNonAtomic([BSSB)S
+		// 24
+		virtualMethodRef 0.10.1()[B;		// getBuffer()[B
+		// 25
+		virtualMethodRef 0.3.3()Z;		// selectingApplet()Z
+		// 26
+		staticMethodRef 0.7.1(S)V;		// javacard/framework/ISOException.throwIt(S)V
+		// 27
+		staticMethodRef CAAplett/setId(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 28
+		staticMethodRef CAAplett/getId(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 29
+		staticMethodRef CAAplett/setAESKEY(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 30
+		staticMethodRef CAAplett/getDigest(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 31
+		staticMethodRef CAAplett/getEncryptedId(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 32
+		staticMethodRef CAAplett/verifyPIN(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 33
+		staticMethodRef CAAplett/setPIN(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 34
+		staticMethodRef CAAplett/getEncryptedChallenge(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 35
+		virtualMethodRef 0.10.6()S;		// setIncomingAndReceive()S
+		// 36
+		staticMethodRef 0.16.2([BS[BSS)S;		// javacard/framework/Util.arrayCopyNonAtomic([BS[BSS)S
+		// 37
+		virtualMethodRef 0.10.8(SS)V;		// setOutgoingAndSend(SS)V
+		// 38
+		virtualMethodRef 1.11.4()V;		// reset()V
+		// 39
+		virtualMethodRef 1.11.1([BSS[BS)S;		// doFinal([BSS[BS)S
+		// 40
+		virtualMethodRef 1.14.1([BSS)V;		// generateData([BSS)V
+		// 41
+		virtualMethodRef 2.1.4(Ljavacard/security/Key;B[BSS)V;		// init(Ljavacard/security/Key;B[BSS)V
+			.descriptor	Ljavacard/security/Key;	1.0;
+
+		// 42
+		virtualMethodRef 2.1.1([BSS[BS)S;		// doFinal([BSS[BS)S
+		// 43
+		virtualMethodRef 0.10.7()S;		// setOutgoing()S
+		// 44
+		virtualMethodRef 0.10.9(S)V;		// setOutgoingLength(S)V
+		// 45
+		virtualMethodRef 0.10.4(SS)V;		// sendBytes(SS)V
+		// 46
+		virtualMethodRef 0.9.1([BSB)Z;		// check([BSB)Z
+		// 47
+		virtualMethodRef 0.9.8([BSB)V;		// update([BSB)V
+	}
+
+	.class public CAAplett 0 extends 0.3 {		// extends javacard/framework/Applet
+
+		.fields {
+			 0.9 pin 0;		// Ljavacard/framework/OwnerPIN;
+			private 1.20 symmetricKey 1;		// Ljavacard/security/AESKey;
+			private byte[] cardId 2;		// [B
+			private 1.11 hashFunction 3;		// Ljavacard/security/MessageDigest;
+			private 2.1 aesCipher 4;		// Ljavacardx/crypto/Cipher;
+			private 1.14 random 5;		// Ljavacard/security/RandomData;
+			private byte[] ivBuffer 6;		// [B
+			private byte[] aesInputBuffer 7;		// [B
+			private byte[] aesInputBufferD 8;		// [B
+			private byte[] digestBuffer 9;		// [B
+			private short idLength 10;		// S
+			static final byte CONTROLLA_CLA = -128;		// B
+			private static final byte INS_SET_ID = 1;		// B
+			private static final byte INS_GET_ID = 2;		// B
+			private static final byte INS_SET_AES_KEY = 3;		// B
+			private static final byte INS_GET_DIGEST = 4;		// B
+			private static final byte INS_GET_ENCRYPTED_ID = 6;		// B
+			private static final byte INS_VERIFY_PIN = 7;		// B
+			private static final byte INS_SET_PIN = 8;		// B
+			private static final byte INS_GET_ENCRYPTED_CHALLENGE = 9;		// B
+			static final short SW_VERIFICATION_FAILED = 25344;		// S
+			private static final short MAX_ID_LENGTH = 64;		// S
+			static final byte MAX_PIN_SIZE = 6;		// B
+			static final byte PIN_TRY_LIMIT = 3;		// B
+		}
+
+		.publicMethodTable 4 {
+			equals(Ljava/lang/Object;)Z;
+			register()V;
+			register([BSB)V;
+			selectingApplet()Z;
+			deselect()V;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;
+			select()Z;
+			process(Ljavacard/framework/APDU;)V;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method protected <init>()V 0 {
+			.stack 5;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 12;		// javacard/framework/Applet.<init>()V
+					aload_0;
+					bspush 64;
+					newarray 11;
+					putfield_a 0;		// reference com/project/CAAplett.cardId
+					sconst_0;
+					putfield_s_this 1;		// short com/project/CAAplett.idLength
+					aload_0;
+					new 16;		// javacard/framework/OwnerPIN
+					dup;
+					sconst_3;
+					bspush 6;
+					invokespecial 19;		// javacard/framework/OwnerPIN.<init>(BB)V
+					putfield_a 2;		// reference com/project/CAAplett.pin
+					aload_0;
+					bspush 15;
+					sspush 256;
+					sconst_0;
+					invokestatic 14;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+					checkcast 0 15;		// T_CLASSORINTERFACE javacard/security/AESKey
+					putfield_a 3;		// reference com/project/CAAplett.symmetricKey
+					aload_0;
+					bspush 13;
+					sconst_0;
+					invokestatic 17;		// javacardx/crypto/Cipher.getInstance(BZ)Ljavacardx/crypto/Cipher;
+					putfield_a 4;		// reference com/project/CAAplett.aesCipher
+					aload_0;
+					sconst_4;
+					sconst_0;
+					invokestatic 11;		// javacard/security/MessageDigest.getInstance(BZ)Ljavacard/security/MessageDigest;
+					putfield_a 5;		// reference com/project/CAAplett.hashFunction
+					aload_0;
+					bspush 16;
+					sconst_2;
+					invokestatic 13;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 6;		// reference com/project/CAAplett.ivBuffer
+					aload_0;
+					bspush 64;
+					sconst_2;
+					invokestatic 13;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 7;		// reference com/project/CAAplett.aesInputBuffer
+					aload_0;
+					bspush 64;
+					sconst_2;
+					invokestatic 13;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 8;		// reference com/project/CAAplett.aesInputBufferD
+					aload_0;
+					bspush 64;
+					sconst_2;
+					invokestatic 13;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 9;		// reference com/project/CAAplett.digestBuffer
+					aload_0;
+					sconst_1;
+					invokestatic 18;		// javacard/security/RandomData.getInstance(B)Ljavacard/security/RandomData;
+					putfield_a 10;		// reference com/project/CAAplett.random
+					aload_0;
+					invokevirtual 20;		// register()V
+					return;
+		}
+
+		.method public static install([BSB)V 1 {
+			.stack 1;
+			.locals 0;
+
+				L0:	new 21;		// com/project/CAAplett
+					invokespecial 22;		// com/project/CAAplett.<init>()V
+					return;
+		}
+
+		.method public deselect()V 4 {
+			.stack 4;
+			.locals 0;
+
+				L0:	getfield_a_this 6;		// reference com/project/CAAplett.ivBuffer
+					sconst_0;
+					getfield_a_this 6;		// reference com/project/CAAplett.ivBuffer
+					arraylength;
+					sconst_0;
+					invokestatic 23;		// javacard/framework/Util.arrayFillNonAtomic([BSSB)S
+					pop;
+					getfield_a_this 7;		// reference com/project/CAAplett.aesInputBuffer
+					sconst_0;
+					getfield_a_this 7;		// reference com/project/CAAplett.aesInputBuffer
+					arraylength;
+					sconst_0;
+					invokestatic 23;		// javacard/framework/Util.arrayFillNonAtomic([BSSB)S
+					pop;
+					getfield_a_this 9;		// reference com/project/CAAplett.digestBuffer
+					sconst_0;
+					getfield_a_this 9;		// reference com/project/CAAplett.digestBuffer
+					arraylength;
+					sconst_0;
+					invokestatic 23;		// javacard/framework/Util.arrayFillNonAtomic([BSSB)S
+					pop;
+					getfield_a_this 8;		// reference com/project/CAAplett.aesInputBufferD
+					sconst_0;
+					getfield_a_this 7;		// reference com/project/CAAplett.aesInputBuffer
+					arraylength;
+					sconst_0;
+					invokestatic 23;		// javacard/framework/Util.arrayFillNonAtomic([BSSB)S
+					pop;
+					return;
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 2;
+			.locals 1;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 24;		// getBuffer()[B
+					astore_2;
+				L1:	aload_0;
+					invokevirtual 25;		// selectingApplet()Z
+					ifeq L3;
+				L2:	return;
+				L3:	aload_2;
+					sconst_0;
+					baload;
+					bspush -128;
+					if_scmpeq L5;
+				L4:	sspush 28160;
+					invokestatic 26;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_2;
+					sconst_1;
+					baload;
+					stableswitch L14 1 9 L6 L7 L8 L9 L14 L10 L11 L12 L13;
+				L6:	aload_0;
+					aload_1;
+					invokespecial 27;		// com/project/CAAplett.setId(Ljavacard/framework/APDU;)V
+					goto L15;
+				L7:	aload_0;
+					aload_1;
+					invokespecial 28;		// com/project/CAAplett.getId(Ljavacard/framework/APDU;)V
+					goto L15;
+				L8:	aload_0;
+					aload_1;
+					invokespecial 29;		// com/project/CAAplett.setAESKEY(Ljavacard/framework/APDU;)V
+					goto L15;
+				L9:	aload_0;
+					aload_1;
+					invokespecial 30;		// com/project/CAAplett.getDigest(Ljavacard/framework/APDU;)V
+					goto L15;
+				L10:	aload_0;
+					aload_1;
+					invokespecial 31;		// com/project/CAAplett.getEncryptedId(Ljavacard/framework/APDU;)V
+					goto L15;
+				L11:	aload_0;
+					aload_1;
+					invokespecial 32;		// com/project/CAAplett.verifyPIN(Ljavacard/framework/APDU;)V
+					goto L15;
+				L12:	aload_0;
+					aload_1;
+					invokespecial 33;		// com/project/CAAplett.setPIN(Ljavacard/framework/APDU;)V
+					goto L15;
+				L13:	aload_0;
+					aload_1;
+					invokespecial 34;		// com/project/CAAplett.getEncryptedChallenge(Ljavacard/framework/APDU;)V
+					goto L15;
+				L14:	sspush 27904;
+					invokestatic 26;		// javacard/framework/ISOException.throwIt(S)V
+				L15:	return;
+		}
+
+		.method private setId(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 24;		// getBuffer()[B
+					astore_2;
+				L1:	aload_1;
+					invokevirtual 35;		// setIncomingAndReceive()S
+					sstore_3;
+				L2:	sload_3;
+					bspush 64;
+					if_scmple L4;
+				L3:	sspush 26368;
+					invokestatic 26;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	aload_2;
+					sconst_5;
+					getfield_a_this 0;		// reference com/project/CAAplett.cardId
+					sconst_0;
+					sload_3;
+					invokestatic 36;		// javacard/framework/Util.arrayCopyNonAtomic([BS[BSS)S
+					pop;
+					sload_3;
+					putfield_s_this 1;		// short com/project/CAAplett.idLength
+					return;
+		}
+
+		.method private getId(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 1;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 24;		// getBuffer()[B
+					astore_2;
+				L1:	getfield_s_this 1;		// short com/project/CAAplett.idLength
+					ifne L3;
+				L2:	sspush 27013;
+					invokestatic 26;		// javacard/framework/ISOException.throwIt(S)V
+				L3:	getfield_a_this 0;		// reference com/project/CAAplett.cardId
+					sconst_0;
+					aload_2;
+					sconst_0;
+					getfield_s_this 1;		// short com/project/CAAplett.idLength
+					invokestatic 36;		// javacard/framework/Util.arrayCopyNonAtomic([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					getfield_s_this 1;		// short com/project/CAAplett.idLength
+					invokevirtual 37;		// setOutgoingAndSend(SS)V
+					return;
+		}
+
+		.method private setAESKEY(Ljavacard/framework/APDU;)V {
+			.stack 3;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 24;		// getBuffer()[B
+					astore_2;
+				L1:	aload_1;
+					invokevirtual 35;		// setIncomingAndReceive()S
+					sstore_3;
+				L2:	sload_3;
+					bspush 32;
+					if_scmpeq L4;
+				L3:	sspush 26368;
+					invokestatic 26;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	getfield_a_this 3;		// reference com/project/CAAplett.symmetricKey
+					aload_2;
+					sconst_5;
+					invokeinterface 3 15 4;		// javacard/security/AESKey
+					return;
+		}
+
+		.method private getDigest(Ljavacard/framework/APDU;)V {
+			.stack 6;
+			.locals 3;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 24;		// getBuffer()[B
+					astore_2;
+				L1:	aload_1;
+					invokevirtual 35;		// setIncomingAndReceive()S
+					sstore_3;
+				L2:	sload_3;
+					ifle L4;
+				L3:	sload_3;
+					bspush 32;
+					if_scmple L5;
+				L4:	sspush 26368;
+					invokestatic 26;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	getfield_a_this 5;		// reference com/project/CAAplett.hashFunction
+					invokevirtual 38;		// reset()V
+					getfield_a_this 5;		// reference com/project/CAAplett.hashFunction
+					aload_2;
+					sconst_5;
+					sload_3;
+					aload_2;
+					sconst_0;
+					invokevirtual 39;		// doFinal([BSS[BS)S
+					sstore 4;
+				L6:	aload_1;
+					sconst_0;
+					sload 4;
+					invokevirtual 37;		// setOutgoingAndSend(SS)V
+					return;
+		}
+
+		.method private getEncryptedId(Ljavacard/framework/APDU;)V {
+			.stack 6;
+			.locals 3;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 24;		// getBuffer()[B
+					astore_2;
+				L1:	getfield_a_this 10;		// reference com/project/CAAplett.random
+					getfield_a_this 6;		// reference com/project/CAAplett.ivBuffer
+					sconst_0;
+					bspush 16;
+					invokevirtual 40;		// generateData([BSS)V
+					getfield_s_this 1;		// short com/project/CAAplett.idLength
+					s2i;
+					bipush 15;
+					iadd;
+					bipush 16;
+					idiv;
+					bipush 16;
+					imul;
+					i2s;
+					sstore_3;
+				L2:	getfield_a_this 7;		// reference com/project/CAAplett.aesInputBuffer
+					sconst_0;
+					sload_3;
+					sconst_0;
+					invokestatic 23;		// javacard/framework/Util.arrayFillNonAtomic([BSSB)S
+					pop;
+					getfield_a_this 0;		// reference com/project/CAAplett.cardId
+					sconst_0;
+					getfield_a_this 7;		// reference com/project/CAAplett.aesInputBuffer
+					sconst_0;
+					getfield_s_this 1;		// short com/project/CAAplett.idLength
+					invokestatic 36;		// javacard/framework/Util.arrayCopyNonAtomic([BS[BSS)S
+					pop;
+					getfield_a_this 4;		// reference com/project/CAAplett.aesCipher
+					getfield_a_this 3;		// reference com/project/CAAplett.symmetricKey
+					sconst_2;
+					getfield_a_this 6;		// reference com/project/CAAplett.ivBuffer
+					sconst_0;
+					bspush 16;
+					invokevirtual 41;		// init(Ljavacard/security/Key;B[BSS)V
+					getfield_a_this 4;		// reference com/project/CAAplett.aesCipher
+					getfield_a_this 7;		// reference com/project/CAAplett.aesInputBuffer
+					sconst_0;
+					sload_3;
+					aload_2;
+					bspush 16;
+					invokevirtual 42;		// doFinal([BSS[BS)S
+					sstore 4;
+				L3:	getfield_a_this 6;		// reference com/project/CAAplett.ivBuffer
+					sconst_0;
+					aload_2;
+					sconst_0;
+					bspush 16;
+					invokestatic 36;		// javacard/framework/Util.arrayCopyNonAtomic([BS[BSS)S
+					pop;
+					aload_1;
+					invokevirtual 43;		// setOutgoing()S
+					pop;
+					aload_1;
+					bspush 16;
+					sload 4;
+					sadd;
+					invokevirtual 44;		// setOutgoingLength(S)V
+					aload_1;
+					sconst_0;
+					bspush 16;
+					sload 4;
+					sadd;
+					invokevirtual 45;		// sendBytes(SS)V
+					return;
+		}
+
+		.method private verifyPIN(Ljavacard/framework/APDU;)V {
+			.stack 4;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 24;		// getBuffer()[B
+					astore_2;
+				L1:	aload_1;
+					invokevirtual 35;		// setIncomingAndReceive()S
+					s2b;
+					sstore_3;
+				L2:	getfield_a_this 2;		// reference com/project/CAAplett.pin
+					aload_2;
+					sconst_5;
+					sload_3;
+					invokevirtual 46;		// check([BSB)Z
+					ifne L4;
+				L3:	sspush 25344;
+					invokestatic 26;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	return;
+		}
+
+		.method private setPIN(Ljavacard/framework/APDU;)V {
+			.stack 4;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 24;		// getBuffer()[B
+					astore_2;
+				L1:	aload_1;
+					invokevirtual 35;		// setIncomingAndReceive()S
+					sstore_3;
+				L2:	sload_3;
+					bspush 6;
+					if_scmple L4;
+				L3:	sspush 26368;
+					invokestatic 26;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	getfield_a_this 2;		// reference com/project/CAAplett.pin
+					aload_2;
+					sconst_5;
+					sload_3;
+					s2b;
+					invokevirtual 47;		// update([BSB)V
+					return;
+		}
+
+		.method private getEncryptedChallenge(Ljavacard/framework/APDU;)V {
+			.stack 6;
+			.locals 6;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 24;		// getBuffer()[B
+					astore_2;
+				L1:	aload_1;
+					invokevirtual 35;		// setIncomingAndReceive()S
+					sstore_3;
+				L2:	sload_3;
+					ifle L4;
+				L3:	sload_3;
+					bspush 64;
+					if_scmple L5;
+				L4:	sspush 26368;
+					invokestatic 26;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_2;
+					sconst_5;
+					getfield_a_this 6;		// reference com/project/CAAplett.ivBuffer
+					sconst_0;
+					bspush 16;
+					invokestatic 36;		// javacard/framework/Util.arrayCopyNonAtomic([BS[BSS)S
+					pop;
+					getfield_a_this 4;		// reference com/project/CAAplett.aesCipher
+					getfield_a_this 3;		// reference com/project/CAAplett.symmetricKey
+					sconst_1;
+					getfield_a_this 6;		// reference com/project/CAAplett.ivBuffer
+					sconst_0;
+					bspush 16;
+					invokevirtual 41;		// init(Ljavacard/security/Key;B[BSS)V
+					getfield_a_this 4;		// reference com/project/CAAplett.aesCipher
+					aload_2;
+					bspush 21;
+					sload_3;
+					bspush 16;
+					ssub;
+					getfield_a_this 8;		// reference com/project/CAAplett.aesInputBufferD
+					sconst_0;
+					invokevirtual 42;		// doFinal([BSS[BS)S
+					sstore 4;
+				L6:	getfield_a_this 5;		// reference com/project/CAAplett.hashFunction
+					invokevirtual 38;		// reset()V
+					getfield_a_this 5;		// reference com/project/CAAplett.hashFunction
+					getfield_a_this 8;		// reference com/project/CAAplett.aesInputBufferD
+					sconst_0;
+					sload 4;
+					getfield_a_this 9;		// reference com/project/CAAplett.digestBuffer
+					sconst_0;
+					invokevirtual 39;		// doFinal([BSS[BS)S
+					sstore 5;
+				L7:	getfield_a_this 10;		// reference com/project/CAAplett.random
+					getfield_a_this 6;		// reference com/project/CAAplett.ivBuffer
+					sconst_0;
+					bspush 16;
+					invokevirtual 40;		// generateData([BSS)V
+					sload 5;
+					s2i;
+					bipush 15;
+					iadd;
+					bipush 16;
+					idiv;
+					bipush 16;
+					imul;
+					i2s;
+					sstore 6;
+				L8:	getfield_a_this 7;		// reference com/project/CAAplett.aesInputBuffer
+					sconst_0;
+					sload 6;
+					sconst_0;
+					invokestatic 23;		// javacard/framework/Util.arrayFillNonAtomic([BSSB)S
+					pop;
+					getfield_a_this 9;		// reference com/project/CAAplett.digestBuffer
+					sconst_0;
+					getfield_a_this 7;		// reference com/project/CAAplett.aesInputBuffer
+					sconst_0;
+					sload 5;
+					invokestatic 36;		// javacard/framework/Util.arrayCopyNonAtomic([BS[BSS)S
+					pop;
+					getfield_a_this 4;		// reference com/project/CAAplett.aesCipher
+					getfield_a_this 3;		// reference com/project/CAAplett.symmetricKey
+					sconst_2;
+					getfield_a_this 6;		// reference com/project/CAAplett.ivBuffer
+					sconst_0;
+					bspush 16;
+					invokevirtual 41;		// init(Ljavacard/security/Key;B[BSS)V
+					getfield_a_this 4;		// reference com/project/CAAplett.aesCipher
+					getfield_a_this 7;		// reference com/project/CAAplett.aesInputBuffer
+					sconst_0;
+					sload 6;
+					aload_2;
+					bspush 16;
+					invokevirtual 42;		// doFinal([BSS[BS)S
+					sstore 7;
+				L9:	getfield_a_this 6;		// reference com/project/CAAplett.ivBuffer
+					sconst_0;
+					aload_2;
+					sconst_0;
+					bspush 16;
+					invokestatic 36;		// javacard/framework/Util.arrayCopyNonAtomic([BS[BSS)S
+					pop;
+					aload_1;
+					invokevirtual 43;		// setOutgoing()S
+					pop;
+					aload_1;
+					bspush 16;
+					sload 7;
+					sadd;
+					invokevirtual 44;		// setOutgoingLength(S)V
+					aload_1;
+					sconst_0;
+					bspush 16;
+					sload 7;
+					sadd;
+					invokevirtual 45;		// sendBytes(SS)V
+					return;
+		}
+
+	}
+
+}
