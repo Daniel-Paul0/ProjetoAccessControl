@@ -1,4 +1,3 @@
 
-Applet - ControllAccess
+Applet - ControllAccess \n
 Terminal com comunicação - ProjetoComCominicação
-Terminal sem comunicação - ProjetoAccessControll
